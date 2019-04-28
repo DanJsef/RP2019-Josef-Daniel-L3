@@ -1,0 +1,8 @@
+/vendor/*
+/www/uploads/*/
+!www/uploads/_/originals/.gitignore
+!www/uploads/_/thumbnails/.gitignore
+!**/.gitkeep
+/.idea
+/directus/vendor/*
+/node_modules
