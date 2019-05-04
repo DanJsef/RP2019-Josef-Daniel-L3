@@ -3,7 +3,7 @@
         <section class="hero">
             <div class="objednat-se">
                 <span class="objednat-se--text">
-                    Vzorový text na tomto místě
+                    {{ this.data.welcome_text }}
                 </span>
                 <a
                     href="/reservation"
@@ -24,12 +24,12 @@
                 <div class="text">
                     <ul class="sluzby">
                         <li
-                            v-for="text in this.texts.slice(0, 7)"
+                            v-for="service in this.data.services"
                             class="blok"
-                            :key="text.id"
+                            :key="service.id"
                         >
-                            <h3>{{ text.name }}</h3>
-                            <p>{{ text.long_text }}</p>
+                            <h3>{{ service.service_name }}</h3>
+                            <p>{{ service.service_text }}</p>
                         </li>
                     </ul>
                     <a
@@ -45,15 +45,15 @@
                 id="anchor-onas"
             >
                 <div
-                    v-for="text in this.texts.slice(7)"
+                    v-for="info in this.data.info"
                     class="blok"
-                    :key="text.id"
+                    :key="info.id"
                 >
                     <div class="nadpis">
-                        <h2>{{ text.name }}</h2>
+                        <h2>{{ info.info_name }}</h2>
                     </div>
                     <div class="text">
-                        <p>{{ text.long_text }}</p>
+                        <p>{{ info.info_text }}</p>
                     </div>
                 </div>
             </section>
@@ -67,55 +67,55 @@
                 <div class="text">
                     <div class="kontaktwrapper">
                         <div>
-                            <h3>Místo 1</h3>
+                            <h3>{{ this.data.address1_name }}</h3>
                             <ul class="kontaktyUl">
                                 <li>
                                     <i class="fas fa-map-marked-alt" />
                                     <a
                                         href=""
                                     >
-                                        Název místa 1
-                                        <br>Město 1
-                                        <br>Adresa 1
+                                        {{ this.data.address1_palce_name }}
+                                        <br>{{ this.data.address1_street }}
+                                        <br>{{ this.data.address1_town }}
                                     </a>
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope" />
                                     <a href="mailto:">
-                                        E-mail 1
+                                        {{ this.data.address1_email }}
                                     </a>
                                 </li>
                                 <li>
                                     <i class="fas fa-phone" />
                                     <a href="">
-                                        Tel. čislo 1
+                                        {{ this.data.address1_tel }}
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <h3>Místo 2</h3>
+                            <h3>{{ this.data.address2_name }}</h3>
                             <ul class="kontaktyUl">
                                 <li>
                                     <i class="fas fa-map-marked-alt" />
                                     <a
-                                        href="http://maps.google.com/?q=1200 TKV-Technická kontrola Vratislavice, Tanvaldská 1106, Liberec 30, 463 11"
+                                            href=""
                                     >
-                                        Název místa 2
-                                        <br>Město 2
-                                        <br>Adresa 2
+                                        {{ this.data.address2_palce_name }}
+                                        <br>{{ this.data.address2_street }}
+                                        <br>{{ this.data.address2_town }}
                                     </a>
                                 </li>
                                 <li>
                                     <i class="fas fa-envelope" />
-                                    <a href="">
-                                        E-mail 2
+                                    <a href="mailto:">
+                                        {{ this.data.address2_email }}
                                     </a>
                                 </li>
                                 <li>
                                     <i class="fas fa-phone" />
                                     <a href="">
-                                        Tel. číslo 2
+                                        {{ this.data.address2_tel }}
                                     </a>
                                 </li>
                             </ul>
@@ -134,19 +134,17 @@ import axios from 'axios';
 export default {
     data() {
         return {
-            texts: [],
+            data: '',
         };
     },
     methods: {
         getTexts() {
-            axios.get('/api/text/index').then(({data}) => {
-                data.forEach(text => {
-                    this.texts.push((text));
-                });
+            axios.get('/directus/_/items/landing_page?fields=*.*').then(response => {
+                this.data = response.data.data[0];
             });
         },
     },
-    mounted() {
+    created() {
         this.getTexts();
     }
 };

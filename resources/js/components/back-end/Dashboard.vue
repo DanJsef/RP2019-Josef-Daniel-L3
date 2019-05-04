@@ -4,27 +4,9 @@
             <div class="btn-group-vertical w-100">
                 <button
                     class="btn btn-primary"
-                    @click="componentToShow = 'change-texts'"
-                >
-                    Upravit texty
-                </button>
-                <button
-                    class="btn btn-primary"
                     @click="componentToShow = 'show-reservations'"
                 >
                     Rezervace
-                </button>
-                <button
-                    class="btn btn-primary"
-                    @click="componentToShow = 'add-photo'"
-                >
-                    Přidat fotografii
-                </button>
-                <button
-                    class="btn btn-primary"
-                    @click="componentToShow = 'delete-photo'"
-                >
-                    Odstranit fotografii
                 </button>
                 <button
                     class="btn btn-primary"
@@ -39,17 +21,11 @@
 </template>
 
 <script>
-import Texts from './dashboard/Texts';
 import Reservations from './dashboard/Reservations';
-import AddPhoto from './dashboard/AddPhoto';
-import DeletePhoto from './dashboard/DeletePhoto';
 
 export default {
     components: {
-        'change-texts': Texts,
         'show-reservations': Reservations,
-        'add-photo': AddPhoto,
-        'delete-photo': DeletePhoto,
     },
     data() {
         return {

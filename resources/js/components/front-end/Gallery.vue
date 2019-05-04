@@ -7,10 +7,15 @@
                     <photo
                         v-for="photo in photos"
                         v-bind="photo"
-                        :key="photo.id"
+                        :key="photo.filename"
                     />
                 </div>
             </div>
+            <button
+                    @click="loadMore"
+                    :disabled="this.btnOff === true"
+                    class="btn"
+            >další</button>
         </div>
     </div>
 </template>
@@ -25,18 +30,14 @@ export default {
     },
     data() {
         return {
-            photos: []
+            photos: [],
+            btnOff: false
         };
     },
     methods: {
         read() {
-            axios.get('/api/photo/index').then(({ data }) => {
-                let x = this.photos.length;
-                let reversed = data.reverse();
-                let y = reversed.length;
-                for (x; x < y; x++) {
-                    this.photos.push(reversed[x]);
-                }
+            axios.get('/directus/_/items/gallery_rel?fields=file_id.filename,file_id.id&sort=-file_id&limit=2').then(({ data }) => {
+                data.data.forEach(photo => this.photos.push(photo.file_id));
                 this.$nextTick(function() {
                     this.initializeGallery();
                 });
@@ -44,6 +45,17 @@ export default {
         },
         initializeGallery() {
             baguetteBox.run('.gallery');
+        },
+        loadMore() {
+            axios.get('/directus/_/items/gallery_rel?fields=file_id.filename,file_id.id&sort=-file_id&limit=2&filter[file_id][lt]=' + this.photos[this.photos.length - 1].id).then(({ data }) => {
+                if (data.data.length < 2) {
+                    this.btnOff = true;
+                }
+                data.data.forEach(photo => this.photos.push(photo.file_id));
+                this.$nextTick(function() {
+                    this.initializeGallery();
+                });
+            });
         }
     },
     created() {

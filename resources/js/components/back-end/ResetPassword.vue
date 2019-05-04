@@ -72,5 +72,5 @@ export default {
 </script>
 
 <style>
-    @import "../../../../www/css/app.css";
+    /*@import "../../../../www/css/app.css";*/
 </style>

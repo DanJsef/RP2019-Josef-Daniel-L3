@@ -1,22 +1,18 @@
 <template>
     <a
-        :href="'storage/images/'+file_name"
-        :data-at-450="'images/public/images/l_'+file_name"
-        :data-at-800="'images/public/images/m_'+file_name"
-        :data-at-1366="'images/public/images/m_'+file_name"
-        :data-at-1920="'images/public/images/'+file_name"
-        :data-caption="seo_name"
+        :href="'directus/uploads/_/originals/'+filename"
+        :data-caption="filename"
         class="selector"
     >
         <img
-            :src="'images/public/images/p_'+file_name"
-            :alt="seo_name"
+            :src="'http://rp.dv/directus/thumbnail/_/400/400/crop/good/'+filename"
+            :alt="filename"
         >
     </a>
 </template>
 
 <script>
 export default {
-    props: ['seo_name', 'file_name']
+    props: ['filename']
 };
 </script>

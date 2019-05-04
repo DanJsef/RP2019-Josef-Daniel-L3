@@ -41,34 +41,15 @@ Route::post('/admin', [
 Route::post('/admin/data', [
     'uses' => 'AdminController@getAdminData'
 ]);
-//TEXT
-Route::get('/text/index', [
-    'uses' => 'TextController@getText'
-]);
-//GALLERY
-Route::get('/photo/index', [
-    'uses' => 'PhotosController@getPhotos'
-]);
 
 //ADMIN RESTRICTED
 Route::middleware('api.admin')->group(function () {
-    //TEXT
-    Route::post('/text/update', [
-        'uses' => 'TextController@updateText'
-    ]);
     //BOOKING
     Route::post('/booking/remove', [
         'uses' => 'BookingController@RemoveReserved'
     ]);
     Route::post('/booking/reserved', [
         'uses' => 'BookingController@Reserved'
-    ]);
-    //GALLERY
-    Route::post('/photo/add', [
-        'uses' => 'PhotosController@storePhoto'
-    ]);
-    Route::post('/photo/delete', [
-        'uses' => 'PhotosController@deletePhoto'
     ]);
 });
 
