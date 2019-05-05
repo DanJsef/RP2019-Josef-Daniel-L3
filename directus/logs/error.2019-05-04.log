@@ -1,0 +1,446 @@
+[2019-05-04 07:16:17] api[_].ERROR: Directus\Permissions\Exception\ForbiddenCollectionReadException: Reading items from "photos" collection was denied in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Permissions/Acl.php:988
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Database/TableGateway/BaseTableGateway.php(1148): Directus\Permissions\Acl->enforceReadOnce
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Database/TableGateway/RelationalTableGateway.php(1023): Directus\Database\TableGateway\BaseTableGateway->enforceReadPermission
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Database/TableGateway/RelationalTableGateway.php(1142): Directus\Database\TableGateway\RelationalTableGateway->fetchItems
+#3 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Database/TableGateway/RelationalTableGateway.php(824): Directus\Database\TableGateway\RelationalTableGateway->fetchData
+#4 [internal function]: Directus\Database\TableGateway\RelationalTableGateway->getItems
+#5 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AbstractService.php(332): call_user_func_array
+#6 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AbstractService.php(276): Directus\Services\AbstractService->getDataAndSetResponseCacheTags
+#7 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/ItemsService.php(56): Directus\Services\AbstractService->getItemsAndSetResponseCacheTags
+#8 /home/danielj/Documents/web/school/RP/app/directus/src/endpoints/Items.php(43): Directus\Services\ItemsService->findAll
+#9 [internal function]: Directus\Api\Routes\Items->all
+#10 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(41): call_user_func
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(356): Slim\Handlers\Strategies\RequestResponse->__invoke
+#12 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\Route->__invoke
+#13 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#14 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#15 [internal function]: Slim\DeferredCallable->__invoke
+#16 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#17 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AuthenticationMiddleware.php(81): Slim\Route->Slim\{closure}
+#18 [internal function]: Directus\Application\Http\Middleware\AuthenticationMiddleware->__invoke
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#20 [internal function]: Slim\DeferredCallable->__invoke
+#21 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#22 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->Slim\{closure}
+#23 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#24 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#25 [internal function]: Slim\DeferredCallable->__invoke
+#26 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#27 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#28 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#29 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#30 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#31 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#32 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#33 [internal function]: Slim\DeferredCallable->__invoke
+#34 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#35 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#36 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#37 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#38 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#39 [internal function]: Slim\DeferredCallable->__invoke
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#41 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#42 [internal function]: RKA\Middleware\IpAddress->__invoke
+#43 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#44 [internal function]: Slim\DeferredCallable->__invoke
+#45 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#46 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#47 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#48 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#49 [internal function]: Slim\DeferredCallable->__invoke
+#50 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#51 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#52 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#53 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#54 [internal function]: Slim\DeferredCallable->__invoke
+#55 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#56 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#57 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#58 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#59 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#60 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []
+[2019-05-04 07:17:12] api[_].ERROR: Directus\Authentication\Exception\ExpiredTokenException: Expired token in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Util/JWTUtils.php:33
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(564): Directus\Util\JWTUtils::decode
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(219): Directus\Authentication\Provider->getTokenPayload
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(193): Directus\Authentication\Provider->authenticateWithToken
+#3 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AuthenticationMiddleware.php(100): Directus\Services\AuthService->authenticateWithToken
+#4 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AuthenticationMiddleware.php(32): Directus\Application\Http\Middleware\AuthenticationMiddleware->authenticate
+#5 [internal function]: Directus\Application\Http\Middleware\AuthenticationMiddleware->__invoke
+#6 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#7 [internal function]: Slim\DeferredCallable->__invoke
+#8 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#9 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->Slim\{closure}
+#10 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#12 [internal function]: Slim\DeferredCallable->__invoke
+#13 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#14 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#15 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#16 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#17 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#18 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#20 [internal function]: Slim\DeferredCallable->__invoke
+#21 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#22 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#23 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#24 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#25 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#26 [internal function]: Slim\DeferredCallable->__invoke
+#27 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#28 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#29 [internal function]: RKA\Middleware\IpAddress->__invoke
+#30 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#31 [internal function]: Slim\DeferredCallable->__invoke
+#32 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#33 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#34 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#35 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#36 [internal function]: Slim\DeferredCallable->__invoke
+#37 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#38 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#39 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#41 [internal function]: Slim\DeferredCallable->__invoke
+#42 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#43 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#44 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#45 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#46 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#47 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []
+[2019-05-04 07:17:36] api[_].ERROR: Directus\Authentication\Exception\ExpiredTokenException: Expired token in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Util/JWTUtils.php:33
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(564): Directus\Util\JWTUtils::decode
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(219): Directus\Authentication\Provider->getTokenPayload
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(193): Directus\Authentication\Provider->authenticateWithToken
+#3 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AuthenticationMiddleware.php(100): Directus\Services\AuthService->authenticateWithToken
+#4 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AuthenticationMiddleware.php(32): Directus\Application\Http\Middleware\AuthenticationMiddleware->authenticate
+#5 [internal function]: Directus\Application\Http\Middleware\AuthenticationMiddleware->__invoke
+#6 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#7 [internal function]: Slim\DeferredCallable->__invoke
+#8 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#9 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->Slim\{closure}
+#10 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#12 [internal function]: Slim\DeferredCallable->__invoke
+#13 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#14 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#15 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#16 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#17 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#18 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#20 [internal function]: Slim\DeferredCallable->__invoke
+#21 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#22 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#23 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#24 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#25 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#26 [internal function]: Slim\DeferredCallable->__invoke
+#27 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#28 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#29 [internal function]: RKA\Middleware\IpAddress->__invoke
+#30 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#31 [internal function]: Slim\DeferredCallable->__invoke
+#32 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#33 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#34 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#35 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#36 [internal function]: Slim\DeferredCallable->__invoke
+#37 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#38 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#39 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#41 [internal function]: Slim\DeferredCallable->__invoke
+#42 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#43 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#44 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#45 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#46 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#47 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []
+[2019-05-04 07:18:55] api[_].ERROR: Directus\Authentication\Exception\InvalidUserCredentialsException: Invalid user credentials in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php:161
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(116): Directus\Authentication\Provider->findUserWithCredentials
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(47): Directus\Authentication\Provider->login
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/endpoints/Auth.php(49): Directus\Services\AuthService->loginWithCredentials
+#3 [internal function]: Directus\Api\Routes\Auth->authenticate
+#4 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(41): call_user_func
+#5 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(356): Slim\Handlers\Strategies\RequestResponse->__invoke
+#6 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->__invoke
+#7 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#8 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#9 [internal function]: Slim\DeferredCallable->__invoke
+#10 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#12 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#13 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#14 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#15 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#16 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#17 [internal function]: Slim\DeferredCallable->__invoke
+#18 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#20 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#21 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#22 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#23 [internal function]: Slim\DeferredCallable->__invoke
+#24 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#25 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#26 [internal function]: RKA\Middleware\IpAddress->__invoke
+#27 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#28 [internal function]: Slim\DeferredCallable->__invoke
+#29 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#30 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#31 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#32 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#33 [internal function]: Slim\DeferredCallable->__invoke
+#34 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#35 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#36 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#37 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#38 [internal function]: Slim\DeferredCallable->__invoke
+#39 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#41 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#42 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#43 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#44 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []
+[2019-05-04 07:19:04] api[_].ERROR: Directus\Authentication\Exception\InvalidUserCredentialsException: Invalid user credentials in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php:161
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(116): Directus\Authentication\Provider->findUserWithCredentials
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(47): Directus\Authentication\Provider->login
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/endpoints/Auth.php(49): Directus\Services\AuthService->loginWithCredentials
+#3 [internal function]: Directus\Api\Routes\Auth->authenticate
+#4 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(41): call_user_func
+#5 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(356): Slim\Handlers\Strategies\RequestResponse->__invoke
+#6 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->__invoke
+#7 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#8 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#9 [internal function]: Slim\DeferredCallable->__invoke
+#10 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#12 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#13 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#14 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#15 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#16 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#17 [internal function]: Slim\DeferredCallable->__invoke
+#18 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#20 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#21 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#22 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#23 [internal function]: Slim\DeferredCallable->__invoke
+#24 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#25 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#26 [internal function]: RKA\Middleware\IpAddress->__invoke
+#27 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#28 [internal function]: Slim\DeferredCallable->__invoke
+#29 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#30 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#31 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#32 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#33 [internal function]: Slim\DeferredCallable->__invoke
+#34 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#35 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#36 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#37 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#38 [internal function]: Slim\DeferredCallable->__invoke
+#39 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#41 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#42 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#43 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#44 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []
+[2019-05-04 08:13:19] api[_].ERROR: Directus\Validator\Exception\InvalidRequestException: email: This value is not a valid email address. in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AbstractService.php:188
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AbstractService.php(120): Directus\Services\AbstractService->throwErrorIfAny
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(408): Directus\Services\AbstractService->validate
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(39): Directus\Services\AuthService->validateCredentials
+#3 /home/danielj/Documents/web/school/RP/app/directus/src/endpoints/Auth.php(49): Directus\Services\AuthService->loginWithCredentials
+#4 [internal function]: Directus\Api\Routes\Auth->authenticate
+#5 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(41): call_user_func
+#6 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(356): Slim\Handlers\Strategies\RequestResponse->__invoke
+#7 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->__invoke
+#8 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#9 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#10 [internal function]: Slim\DeferredCallable->__invoke
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#12 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#13 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#14 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#15 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#16 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#17 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#18 [internal function]: Slim\DeferredCallable->__invoke
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#20 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#21 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#22 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#23 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#24 [internal function]: Slim\DeferredCallable->__invoke
+#25 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#26 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#27 [internal function]: RKA\Middleware\IpAddress->__invoke
+#28 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#29 [internal function]: Slim\DeferredCallable->__invoke
+#30 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#31 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#32 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#33 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#34 [internal function]: Slim\DeferredCallable->__invoke
+#35 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#36 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#37 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#38 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#39 [internal function]: Slim\DeferredCallable->__invoke
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#41 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#42 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#43 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#44 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#45 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []
+[2019-05-04 09:15:35] api[_].ERROR: Directus\Authentication\Exception\InvalidUserCredentialsException: Invalid user credentials in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php:161
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(116): Directus\Authentication\Provider->findUserWithCredentials
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(47): Directus\Authentication\Provider->login
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/endpoints/Auth.php(49): Directus\Services\AuthService->loginWithCredentials
+#3 [internal function]: Directus\Api\Routes\Auth->authenticate
+#4 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(41): call_user_func
+#5 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(356): Slim\Handlers\Strategies\RequestResponse->__invoke
+#6 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->__invoke
+#7 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#8 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#9 [internal function]: Slim\DeferredCallable->__invoke
+#10 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#12 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#13 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#14 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#15 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#16 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#17 [internal function]: Slim\DeferredCallable->__invoke
+#18 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#20 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#21 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#22 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#23 [internal function]: Slim\DeferredCallable->__invoke
+#24 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#25 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#26 [internal function]: RKA\Middleware\IpAddress->__invoke
+#27 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#28 [internal function]: Slim\DeferredCallable->__invoke
+#29 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#30 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#31 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#32 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#33 [internal function]: Slim\DeferredCallable->__invoke
+#34 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#35 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#36 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#37 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#38 [internal function]: Slim\DeferredCallable->__invoke
+#39 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#41 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#42 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#43 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#44 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []
+[2019-05-04 09:15:58] api[_].ERROR: Directus\Authentication\Exception\InvalidUserCredentialsException: Invalid user credentials in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php:161
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(116): Directus\Authentication\Provider->findUserWithCredentials
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(47): Directus\Authentication\Provider->login
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/endpoints/Auth.php(49): Directus\Services\AuthService->loginWithCredentials
+#3 [internal function]: Directus\Api\Routes\Auth->authenticate
+#4 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(41): call_user_func
+#5 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(356): Slim\Handlers\Strategies\RequestResponse->__invoke
+#6 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->__invoke
+#7 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#8 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#9 [internal function]: Slim\DeferredCallable->__invoke
+#10 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#12 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#13 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#14 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#15 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#16 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#17 [internal function]: Slim\DeferredCallable->__invoke
+#18 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#20 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#21 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#22 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#23 [internal function]: Slim\DeferredCallable->__invoke
+#24 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#25 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#26 [internal function]: RKA\Middleware\IpAddress->__invoke
+#27 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#28 [internal function]: Slim\DeferredCallable->__invoke
+#29 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#30 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#31 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#32 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#33 [internal function]: Slim\DeferredCallable->__invoke
+#34 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#35 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#36 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#37 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#38 [internal function]: Slim\DeferredCallable->__invoke
+#39 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#41 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#42 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#43 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#44 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []
+[2019-05-04 09:16:24] api[_].ERROR: Directus\Authentication\Exception\InvalidUserCredentialsException: Invalid user credentials in /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php:161
+Stack trace:
+#0 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Authentication/Provider.php(116): Directus\Authentication\Provider->findUserWithCredentials
+#1 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Services/AuthService.php(47): Directus\Authentication\Provider->login
+#2 /home/danielj/Documents/web/school/RP/app/directus/src/endpoints/Auth.php(49): Directus\Services\AuthService->loginWithCredentials
+#3 [internal function]: Directus\Api\Routes\Auth->authenticate
+#4 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Handlers/Strategies/RequestResponse.php(41): call_user_func
+#5 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(356): Slim\Handlers\Strategies\RequestResponse->__invoke
+#6 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/TableGatewayMiddleware.php(25): Slim\Route->__invoke
+#7 [internal function]: Directus\Application\Http\Middleware\TableGatewayMiddleware->__invoke
+#8 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#9 [internal function]: Slim\DeferredCallable->__invoke
+#10 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#11 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\Route->Slim\{closure}
+#12 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/Route.php(334): Slim\Route->callMiddlewareStack
+#13 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(516): Slim\Route->run
+#14 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/AbstractRateLimitMiddleware.php(34): Slim\App->__invoke
+#15 [internal function]: Directus\Application\Http\Middleware\AbstractRateLimitMiddleware->__invoke
+#16 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#17 [internal function]: Slim\DeferredCallable->__invoke
+#18 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#19 /home/danielj/Documents/web/school/RP/app/directus/vendor/directus/proxy-detection/src/ProxyDetectionMiddleware.php(30): Slim\App->Slim\{closure}
+#20 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ProxyMiddleware.php(18): RKA\Middleware\ProxyDetectionMiddleware->__invoke
+#21 [internal function]: Directus\Application\Http\Middleware\ProxyMiddleware->__invoke
+#22 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#23 [internal function]: Slim\DeferredCallable->__invoke
+#24 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#25 /home/danielj/Documents/web/school/RP/app/directus/vendor/akrabat/ip-address-middleware/src/IpAddress.php(113): Slim\App->Slim\{closure}
+#26 [internal function]: RKA\Middleware\IpAddress->__invoke
+#27 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#28 [internal function]: Slim\DeferredCallable->__invoke
+#29 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#30 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/CorsMiddleware.php(66): Slim\App->Slim\{closure}
+#31 [internal function]: Directus\Application\Http\Middleware\CorsMiddleware->__invoke
+#32 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#33 [internal function]: Slim\DeferredCallable->__invoke
+#34 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#35 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Http/Middleware/ResponseCacheMiddleware.php(47): Slim\App->Slim\{closure}
+#36 [internal function]: Directus\Application\Http\Middleware\ResponseCacheMiddleware->__invoke
+#37 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/DeferredCallable.php(43): call_user_func_array
+#38 [internal function]: Slim\DeferredCallable->__invoke
+#39 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(70): call_user_func
+#40 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/MiddlewareAwareTrait.php(117): Slim\App->Slim\{closure}
+#41 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(407): Slim\App->callMiddlewareStack
+#42 /home/danielj/Documents/web/school/RP/app/directus/vendor/slim/slim/Slim/App.php(315): Slim\App->process
+#43 /home/danielj/Documents/web/school/RP/app/directus/src/core/Directus/Application/Application.php(161): Slim\App->run
+#44 /home/danielj/Documents/web/school/RP/app/www/directus/index.php(5): Directus\Application\Application->run [] []

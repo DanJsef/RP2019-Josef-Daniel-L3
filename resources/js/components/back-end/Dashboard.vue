@@ -4,19 +4,13 @@
             <div class="btn-group-vertical w-100">
                 <button
                     class="btn btn-primary"
-                    @click="componentToShow = 'show-reservations'"
-                >
-                    Rezervace
-                </button>
-                <button
-                    class="btn btn-primary"
                     @click="logOut"
                 >
                     Odhlásit se
                 </button>
             </div>
         </div>
-        <component :is="componentToShow" />
+        <reservations></reservations>
     </div>
 </template>
 
@@ -25,12 +19,11 @@ import Reservations from './dashboard/Reservations';
 
 export default {
     components: {
-        'show-reservations': Reservations,
+        'reservations': Reservations,
     },
     data() {
         return {
             user: '',
-            componentToShow: '',
         };
     },
     methods: {
@@ -42,7 +35,3 @@ export default {
 
 };
 </script>
-
-<style>
-    @import "~bootstrap/dist/css/bootstrap.css";
-</style>

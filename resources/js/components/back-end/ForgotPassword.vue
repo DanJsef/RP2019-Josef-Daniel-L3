@@ -5,7 +5,7 @@
                 <h2>Obnova hesla</h2>
                 <div class="form-group">
                     <input
-                        type="text"
+                        type="email"
                         oninput="this.setAttribute('value', this.value);"
                         value
                         id="email"
@@ -30,13 +30,6 @@
                 >
                     <p>{{ response }}</p>
                 </div>
-                <div
-                    v-for="error in allErrors"
-                    class="alert alert-danger mt-3 mr-5 ml-5"
-                    :key="error.id"
-                >
-                    <p>{{ error }}</p>
-                </div>
             </form>
         </div>
     </div>
@@ -54,19 +47,23 @@ export default {
         };
     },
     methods: {
-        sendForgotMail: function () {
-            axios.post('/api/user/forgot-password', {email: this.email},
-                {headers: {'X-Requested-With': 'XMLHttpRequest'}}).then((response) => {
-                this.response= response.data.message;
-            }).catch(error => {
-                const data = error.response.data.errors;
-                for (let key in data) {
-                    if (data.hasOwnProperty(key)) {
-                        this.allErrors.push(data[key][0]);
-                    }
-                }
-            });
-        }
+        sendForgotMail() {
+            if (this.emailIsValid() === true) {
+                this.response = 'Email se odesílá';
+                axios.post('/api/user/forgot-password', {email: this.email},
+                    {headers: {'X-Requested-With': 'XMLHttpRequest'}}).then((response) => {
+                    this.response = response.data.message;
+                    console.log(response)
+                }).catch(error => {
+                    this.response = 'Nastala chyba (zkontrolujte správnost emailové adresy a opakujte pokus)';
+                });
+            } else {
+                this.response = 'Neplatná adresa';
+            }
+        },
+        emailIsValid() {
+            return /\S+@\S+\.\S+/.test(this.email)
+        },
     },
 };
 </script>

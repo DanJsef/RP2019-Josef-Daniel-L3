@@ -5,14 +5,10 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-
-
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
-}
 
 @import '~baguettebox.js/dist/baguetteBox.min.css';
-
 @import "core";
+
+.bootstrap-iso{
+  @import "~bootstrap/scss/bootstrap";
+}

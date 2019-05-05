@@ -1,69 +1,77 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-12 col-sm-8 col-md-6 col-lg-4 v-c border rounded">
-                <form class='m-3'>
-                    <div class="form-group">
-                        <label for="name">
-                            Jméno
-                        </label>
-                        <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                class="form-control"
-                                v-model="name"
-                        >
-                    </div>
-                    <div class="form-group">
-                        <label for="password">
-                            Heslo
-                        </label>
-                        <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                class="form-control"
-                                v-model="password"
-                        >
-                    </div>
-                    <button
-                            type="submit"
-                            class="btn btn-primary"
-                            @click.prevent="signIn"
+    <div>
+        <div class="formwrapper">
+            <form class="m-5">
+                <h2>admin</h2>
+                <div class="form-group">
+                    <input
+                            oninput="this.setAttribute('value', this.value);"
+                            autocomplete="email"
+                            value
+                            autofocus
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            v-model="email"
                     >
-                        Sign in
-                    </button>
-                </form>
+                    <label for="email">
+                        Email
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input
+                            oninput="this.setAttribute('value', this.value);"
+                            autocomplete="password"
+                            value
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            v-model="password"
+                            required
+                    >
+                    <label for="password">
+                        Heslo
+                    </label>
+                </div>
+                <button
+                        class="btn btn-primary"
+                        type="submit"
+                        @click.prevent="signIn"
+                >
+                    přihlásit
+                </button>
                 <div
                         v-for="error in allErrors"
-                        class="alert alert-danger"
+                        class="alert alert-danger mt-3 mr-5 ml-5"
                         :key="error.id"
                 >
                     <p>{{ error }}</p>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </template>
 
 <script>
 import axios from 'axios';
+
 export default {
     data() {
         return {
-            name: '',
+            email: '',
             password: '',
             allErrors: []
         };
     },
     methods: {
         signIn: function () {
-            axios.post('/api/admin', {name: this.name, password: this.password},
+            axios.post('/api/admin', {name: this.email, password: this.password},
                 {headers: {'X-Requested-With': 'XMLHttpRequest'}}).then((response) => {
                 const token = response.data.token;
                 localStorage.setItem('admin_token', token);
-                this.$router.push('/dashboard');
+                this.$router.push('/admin/dashboard');
             }).catch(error => {
                 const data = error.response.data.errors;
                 this.allErrors = [];
@@ -75,15 +83,5 @@ export default {
             });
         },
     },
-    mounted() {}
 };
 </script>
-
-<style>
-    @import "~bootstrap/dist/css/bootstrap.css";
-    .v-c {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-</style>

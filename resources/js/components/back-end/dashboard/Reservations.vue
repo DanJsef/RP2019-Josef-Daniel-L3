@@ -9,10 +9,11 @@
                 :months="months"
             />
         </div>
-        <div class="w-100">
-            <span>Liberec</span>
-            <table class="mt-5 table table-striped table-dark table-bordered">
-                <thead>
+        <div class="bootstrap-iso">
+            <div class="w-100">
+                <h2 class="w-100 text-center">Liberec</h2>
+                <table class="table table-striped table-dark table-bordered">
+                    <thead>
                     <tr>
                         <th scope="col">
                             Hodina
@@ -33,11 +34,11 @@
                             Odstranit
                         </th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <tr
-                        v-for="reserve in reservesLiberec"
-                        :key="reserve.id"
+                            v-for="reserve in reservesLiberec"
+                            :key="reserve.id"
                     >
                         <td scope="col">
                             {{ reserve.hour }}:00
@@ -56,20 +57,20 @@
                         </td>
                         <td scope="col">
                             <button
-                                class="btn btn-danger"
-                                @click="removeReserved(reserve.id, reserve.place, reserve.date, reserve.hour)"
+                                    class="btn btn-danger"
+                                    @click="removeReserved(reserve.id, reserve.place, reserve.date, reserve.hour)"
                             >
                                 X
                             </button>
                         </td>
                     </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="w-100">
-            <span>Krásná Lípa</span>
-            <table class="mt-5 table table-striped table-dark table-bordered">
-                <thead>
+                    </tbody>
+                </table>
+            </div>
+            <div class="w-100">
+                <h2 class="w-100 text-center">Krásná Lípa</h2>
+                <table class="table table-striped table-dark table-bordered">
+                    <thead>
                     <tr>
                         <th scope="col">
                             Hodina
@@ -90,11 +91,11 @@
                             Odstranit
                         </th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     <tr
-                        v-for="reserve in reservesKrasnaLipa"
-                        :key="reserve.id"
+                            v-for="reserve in reservesKrasnaLipa"
+                            :key="reserve.id"
                     >
                         <td scope="col">
                             {{ reserve.hour }}:00
@@ -113,15 +114,16 @@
                         </td>
                         <td scope="col">
                             <button
-                                class="btn btn-danger"
-                                @click="removeReserved(reserve.id, reserve.place, reserve.date, reserve.hour)"
+                                    class="btn btn-danger"
+                                    @click="removeReserved(reserve.id, reserve.place, reserve.date, reserve.hour)"
                             >
                                 X
                             </button>
                         </td>
                     </tr>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </template>

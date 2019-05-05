@@ -147,6 +147,7 @@ return [
         'password' => 'heslo',
         'first_name' => 'jméno',
         'last_name' => 'příjmení',
-        'phone' => 'telefonní číslo'
+        'phone' => 'telefonní číslo',
+        'name' => 'jméno'
     ],
 ];

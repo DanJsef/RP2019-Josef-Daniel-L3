@@ -1,7 +1,8 @@
 import Home from './components/front-end/Landingpage';
 import SignUp from './components/back-end/SignUp';
 import SignIn from './components/back-end/SignIn';
-import Admin from './components/back-end/AdminSignIn';
+import Admin from './components/back-end/Admin';
+import AdminLogin from './components/back-end/AdminSignIn';
 import Dashboard from './components/back-end/Dashboard';
 import Booking from './components/front-end/Booking';
 import ForgotPassword from './components/back-end/ForgotPassword';
@@ -60,15 +61,19 @@ const routes = [{
         });
     }
 },
+    {
+        path: '/admin',
+        component: Admin,
+    },
 {
-    path: '/admin',
-    component: Admin,
+    path: '/admin/login',
+    component: AdminLogin,
     beforeEnter: (to, from, next) => {
         const token = localStorage.getItem('admin_token');
         axios.post('/api/admin/data?token=' + token,
             {headers: {'X-Requested-With': 'XMLHttpRequest'}}).then((response) => {
             if (response.data.user !== false) {
-                next('/dashboard');
+                next('/admin/dashboard');
             }
         }).catch(error => {
             next();
@@ -76,7 +81,7 @@ const routes = [{
     }
 },
 {
-    path: '/dashboard',
+    path: '/admin/dashboard',
     component: Dashboard,
     beforeEnter: (to, from, next) => {
         const token = localStorage.getItem('admin_token');
@@ -88,7 +93,7 @@ const routes = [{
         }).then((response) => {
             next();
         }).catch(error => {
-            next('/admin');
+            next('/admin/login');
         });
     }
 },
