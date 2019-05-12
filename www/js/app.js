@@ -2384,6 +2384,7 @@ __webpack_require__.r(__webpack_exports__);
     signUp: function signUp() {
       var _this = this;
 
+      this.respmessage.push('Probíhá zpracování');
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/user/sign-up', {
         first_name: this.firstName,
         last_name: this.lastName,

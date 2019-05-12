@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => 'bot@tachografyliberec.cz',
-        'name' => 'Tachografy Liberec s.r.o.',
+        'address' => 'bot@rpdjosef.ga',
+        'name' => 'Testovací aplikace',
     ],
 
     /*

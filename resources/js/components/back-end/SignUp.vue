@@ -119,6 +119,7 @@ export default {
     },
     methods: {
         signUp: function() {
+            this.respmessage.push('Probíhá zpracování');
             axios.post('/api/user/sign-up',
                 {
                     first_name: this.firstName,
