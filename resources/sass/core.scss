@@ -125,14 +125,19 @@ a {
     }
 }
 
+#anchor-sluzby:target, #anchor-onas:target {
+    padding-top: 100px;
+}
 
 nav.header {
+    z-index: 8000;
     display: flex;
     padding: 2.25em 4em;
     justify-content: space-between;
     background-color: $white;
     color: $dark;
-    position: relative;
+    top: 0;
+    position: sticky;
 
     & a {
         padding: .5em 1.25em;

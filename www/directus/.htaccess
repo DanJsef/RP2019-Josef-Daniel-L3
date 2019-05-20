@@ -1,8 +1,8 @@
 # Comment this line if you are getting: "Option SymLinksIfOwnerMatch not allowed here" error in Apache
-Options +SymLinksIfOwnerMatch
+# Options +SymLinksIfOwnerMatch
 
-php_value upload_max_filesize 50M
-php_value post_max_size 100M
+# php_value upload_max_filesize 50M
+# php_value post_max_size 100M
 
 # php5_module automatically handles HTTP_AUTHORIZATION headers, but fcgi_module does not.
 <IfModule mod_setenvif.c>

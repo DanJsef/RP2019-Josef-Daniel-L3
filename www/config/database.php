@@ -42,11 +42,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => 'c219um.forpsi.com',
+            'host' => 'localhost',
             'port' => '3306',
-            'database' => 'f111720',
-            'username' => 'f111720',
-            'password' => 'ekP2AL2',
+            'database' => 'rp',
+            'username' => 'root',
+            'password' => '1234',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

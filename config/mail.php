@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => 'bot@rpdjosef.ga',
+        'address' => 'rpdjosef@gmail.com',
         'name' => 'Testovací aplikace',
     ],
 
