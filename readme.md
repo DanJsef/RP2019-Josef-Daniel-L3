@@ -3,4 +3,5 @@
 3. Create database
 4. Create/Edit .env file (copy .env.example)
 5. Edit directus/config/api.php
-5. Grant permission to storage (if needed)
+6. Web root is located in www/
+7. Grant permission to files (if needed)
